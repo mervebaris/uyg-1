@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+
+import Input from "./components/Input/Input" 
+import Button from "./components/Button/Button";
+import Form from "./components/Form/Form";
+import "./App.css"
 
 function App() {
+  const [text, setText] = useState("Merve")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="custom-page">
+      <Form>
+        <h2>Giriş Sayfası</h2>
+        <Input
+          value={text}
+          placeholder={"Bir Metin İfadesi Giriniz.."}
+          onChange={(e) => {
+            setText(e.target.value);
+          }}
+        />
+
+        <Input
+          value={text}
+          placeholder={"Bir Metin İfadesi Giriniz.."}
+          onChange={(e) => {
+            setText(e.target.value);
+          }}
+        />
+
+        <Button
+          text={"Giriş Yap"}
+          onClick={() => {
+            alert("Tıklandı");
+          }}
+        />
+      </Form>
     </div>
   );
 }
